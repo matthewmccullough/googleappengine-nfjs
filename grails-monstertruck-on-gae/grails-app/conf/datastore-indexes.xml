@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datastore-indexes autoGenerate="true">
+	<datastore-index kind="com.ambientideas.appengine.Venue" ancestor="false">
+        <property name="id" direction="asc" />
+        <property name="venueName" direction="asc" />
+        <property name="venueName" direction="asc" />
+	</datastore-index>
+	
+	<datastore-index kind="com.ambientideas.appengine.MonsterTruck" ancestor="false">
+        <property name="id" direction="asc" />
+				<property name="truckName" direction="asc" />
+				<property name="driverName" direction="asc" />
+				<property name="horsePower" direction="asc" />
+	</datastore-index>
+</datastore-indexes>
