@@ -64,6 +64,24 @@
         <classifier>${platform}</classifier>
         <scope>provided</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>2.7.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-tools.testing</groupId>
+      <artifactId>scalatest</artifactId>
+      <version>0.9.5</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.5</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>sodoku-gae-webapp</finalName>
@@ -82,6 +100,14 @@
       <plugin>
         <groupId>org.scala-tools</groupId>
         <artifactId>maven-scala-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
             
       <plugin>
@@ -113,9 +139,9 @@
         <configuration>
             <logLevel>INFO</logLevel>
             <compileTargets>
-                <value>com.google.appengine.demos.gwtdlx.client.GwtDlx</value>
+                <value>com.google.appengine.demos.gwtdlx.gwtdlx</value>
             </compileTargets>
-            <runTarget>com.google.appengine.demos.gwtdlx.client.GwtDlx/GwtDlx.html</runTarget>
+            <runTarget>com.google.appengine.demos.gwtdlx.gwtdlx/NonExistent.html</runTarget>
             <style>DETAILED</style>
             <noServer>false</noServer>
             <extraJvmArgs>-Xmx512m</extraJvmArgs>
@@ -132,10 +158,7 @@
         <executions>
             <execution>
                 <goals>
-                    <!-- <goal>mergewebxml</goal> -->
-                    <!-- <goal>i18n</goal> -->
                     <goal>compile</goal>                            
-                    <!-- <goal>test</goal> -->
                 </goals>
             </execution>
         </executions>
