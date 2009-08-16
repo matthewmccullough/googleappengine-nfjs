@@ -8,7 +8,7 @@
   <name>Simple GAE WebApp</name>
   <url>http://maven.apache.org</url>
   
-  
+  <!-- I use a Nexus Maven proxy, but if you don't, you'll need these repos -->
   <repositories>
     <repository>
       <id>scala-tools.org</id>
@@ -29,14 +29,7 @@
   </properties>
   
   <dependencies>
-    <!-- For servlet spec -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.4</version>
-      <scope>provided</scope>
-    </dependency>
-    
+    <!-- For Google Web Toolkit -->
     <dependency>
         <groupId>com.google.gwt</groupId>
         <artifactId>gwt-servlet</artifactId>
@@ -83,12 +76,12 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
   <build>
     <finalName>sodoku-gae-webapp</finalName>
 
-    <!-- Execution for deployment to GAE -->
-    <!-- Antrun shell script -->
     <plugins>
+      <!-- Set compiler & target level to 1.6, otherwise defaulting to 1.3 -->
       <plugin> 
           <groupId>org.apache.maven.plugins</groupId> 
           <artifactId>maven-compiler-plugin</artifactId> 
@@ -97,6 +90,8 @@
               <target>1.6</target> 
           </configuration> 
       </plugin>
+      
+      <!-- Scala compiler -->
       <plugin>
         <groupId>org.scala-tools</groupId>
         <artifactId>maven-scala-plugin</artifactId>
@@ -109,7 +104,8 @@
           </execution>
         </executions>
       </plugin>
-            
+      
+      <!-- Execution for deployment to GAE -->      
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -132,6 +128,7 @@
         </configuration>
       </plugin>
       
+      <!-- Google Web Toolkit generation of HTML files -->
       <plugin>
         <groupId>com.totsp.gwt</groupId>
         <artifactId>maven-googlewebtoolkit2-plugin</artifactId>
@@ -163,6 +160,7 @@
             </execution>
         </executions>
     </plugin>
+    
     <!--  Use the dependency plugin to unpack gwt-dev-PLATFORM-libs.zip -->
     <!--
         (this is a replacement for the old "automatic" mode - useful if you
@@ -198,6 +196,7 @@
     </plugins>
   </build>
   
+  <!-- GWT is platform specific, so set it up with profiles -->
   <profiles>
       <profile>
           <id>gwt-dev-windows</id>
