@@ -15,12 +15,20 @@
       <name>Scala-tools Maven2 Repository</name>
       <url>http://scala-tools.org/repo-releases</url>
     </repository>
+    <repository>
+      <id>gwt-maven</id>
+      <url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo/</url>
+    </repository>
   </repositories>
   <pluginRepositories>
     <pluginRepository>
       <id>scala-tools.org</id>
       <name>Scala-tools Maven2 Repository</name>
       <url>http://scala-tools.org/repo-releases</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>gwt-maven-plugins</id>
+      <url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo/</url>
     </pluginRepository>
   </pluginRepositories>
   
@@ -129,6 +137,7 @@
       </plugin>
       
       <!-- Google Web Toolkit generation of HTML files -->
+      <!-- Homepage http://code.google.com/p/gwt-maven/ -->
       <plugin>
         <groupId>com.totsp.gwt</groupId>
         <artifactId>maven-googlewebtoolkit2-plugin</artifactId>
