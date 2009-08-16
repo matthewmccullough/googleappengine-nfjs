@@ -1,0 +1,23 @@
+scala-gwt-dlx is a demo application that solves Sudoku puzzles, using a Sudoku
+solver written in Scala. The servlet component, SudokuApiImpl, is also written
+in Scala, providing an example of how use GWT RPC from Scala. The sovler makes
+use of Donald Knuth's "Dancing Links" algorithm.
+http://en.wikipedia.org/wiki/Dancing_Links
+
+It works on App Engine; you can see a live version on appspot at:
+http://gwtdlx.appspot.com.
+
+Interesting things about this demo:
+- running Scala on App Engine
+- GWT RPC: seamless call from client-side GWT to server-side Scala
+- landing page is done with JSP
+
+The Eclipse .project file was made with Eclipse 3.4 JDT, and expects the Google
+Plugin for Eclipse and the Scala Eclipse IDE.
+
+The unit tests use ScalaTest, which is provided to us under the Apache 2.0
+license. See the COPYING for the Apache 2.0 license, which applies to both
+ScalaTest and scala-gwt-dlx.
+http://www.artima.com/scalatest/
+
+Enjoy!

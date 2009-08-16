@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/2/trunk/test/com/google/appengine/demos/gwtdlx/solver
+END
+SudokuTests.scala
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2/trunk/test/com/google/appengine/demos/gwtdlx/solver/SudokuTests.scala
+END
+MatrixTests.scala
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2/trunk/test/com/google/appengine/demos/gwtdlx/solver/MatrixTests.scala
+END
+DlxTests.scala
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/2/trunk/test/com/google/appengine/demos/gwtdlx/solver/DlxTests.scala
+END
