@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf540
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww11260\viewh12720\viewkind0
+\margl1440\margr1440\vieww12460\viewh16100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\b\fs40 \cf0 Clojure GAE Example
@@ -15,15 +15,53 @@ http://elhumidor.blogspot.com/2009/04/clojure-on-google-appengine.html\
 \
 
 \b \
+Customize compojure\
+
+\b0 Due to GAE's restriction on XX class usage, we have to neuter the http.clj file from the compojure project by removing the   'compojure.http.multipart line.\
+\
+http://github.com/weavejester/compojure/tree/master\
+\
+After neutering the http.clj file looks like this:\
+-------------------------------------------------------------------------------------\
+;; Copyright (c) James Reeves. All rights reserved.\
+;; The use and distribution terms for this software are covered by the Eclipse\
+;; Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php) which\
+;; can be found in the file epl-v10.html at the root of this distribution. By\
+;; using this software in any fashion, you are agreeing to be bound by the\
+;; terms of this license. You must not remove this notice, or any other, from\
+;; this software.\
+\
+(ns compojure.http\
+  "Shortcut to include compojure.http.routes, compojure.http.helpers and\
+   compojure.http.servlet."\
+  (:use compojure.ns-utils))\
+\
+(immigrate\
+  'compojure.http.helpers\
+  'compojure.http.middleware\
+  'compojure.http.routes\
+  'compojure.http.servlet)\
+
+\b -------------------------------------------------------------------------------------\
+\
+
+\b0 Copy this customized version of compojure into the 3plibs directory of the clojure helloworld GAE app.
+\b \
+\
 Build the app
 \b0 \
-ant \
+ant\
 \
 
 \b Local dev version of the app can be run from
 \b0 \
 ant devserver\
 http://localhost:8080/\
+\
+
+\b Deploy the app
+\b0 \
+ant deploy\
 \
 
 \b View the app\
@@ -33,4 +71,4 @@ http://localhost:8080/\
 
 \b View other versions of the app
 \b0 \
-http://1.latest.ambientideas.appspot.com/}
+http://5.latest.ambientideas.appspot.com/}
