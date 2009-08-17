@@ -1,0 +1,10 @@
+Generate XML files required by App Engine for JRuby from a rackup file.
+This works from standard Ruby or JRuby, but you'll need the rack gem.         
+
+Configure your app from within the 'config.ru' file:
+
+  AppEngine::Rack.app.configure( :application => 'simple', :version => 2 )
+
+Now run xmlgen.rb and and your ready to go:
+
+  jruby -rubygems -e 'require "appengine-tools/genxml"'

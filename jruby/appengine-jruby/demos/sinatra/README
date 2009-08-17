@@ -1,0 +1,23 @@
+# Install the google-appengine gem
+$ sudo gem install google-appengine
+
+# Check gem sources for datamapper
+$ gem sources
+
+# Add datamapper to your gem sources (if missing)
+$ appcfg.rb gem sources --add http://gems.datamapper.org
+
+# install the gems into your application
+$ appcfg.rb gem install sinatra dm-appengine
+
+# Start the development server
+$ dev_appserver.rb .
+
+# Create an application-id at appspot.com:
+> http://appengine.google.com/start/createapp
+
+# Replace the application-id in config.ru
+> :application => "your-app-id"
+
+# Upload to App Engine
+$ appcfg.rb update .

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AppEngine::Users::User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'>
+        <tr>
+            <td class="file-title"><span class="file-title-prefix">Class</span><br />AppEngine::Users::User</td>
+            <td align="right">
+                <table cellspacing="0" cellpadding="2">
+                    <tr valign="top">
+                        <td>In:</td>
+                        <td>
+                            
+                            <a href="../../../files/lib/appengine-apis/users_rb.html">lib/appengine-apis/users.rb</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Parent:</td>
+                        <td>
+                            
+                            Object
+                            
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description"><p>
+<a href="User.html">User</a> represents a specific user, represented by the
+combination of an email address and a specific Google Apps domain (which we
+call an <a href="User.html#M000126">auth_domain</a>). For normal Google
+login, authDomain will be set to &#8220;gmail.com&#8220;.
+</p>
+</div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <ul>
+        
+        <li><a href="#M000126">auth_domain</a></li>
+        
+        <li><a href="#M000127">email</a></li>
+        
+        <li><a href="#M000123">new</a></li>
+        
+        <li><a href="#M000125">nickname</a></li>
+        
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title">
+                    
+                    <a name="M000123"></a><b>new</b>(email, auth_domain)
+                    
+                </div>
+                
+                <div class="description">
+                  
+                  <p>
+Creates a new <a href="User.html">User</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>email: a non-nil email address.
+
+</li>
+<li><a href="User.html#M000126">auth_domain</a>: a non-nil domain name into
+which this user has authenticated, or &#8220;gmail.com&#8220; for normal
+Google authentication.
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000123_source')" id="l_M000123_source">show</a>
+                        
+                    </p>
+                    <div id="M000123_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/appengine-apis/users.rb, line 88</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">auth_domain</span>)
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title">
+                    
+                    <a name="M000126"></a><b>auth_domain</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000126_source')" id="l_M000126_source">show</a>
+                        
+                    </p>
+                    <div id="M000126_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/appengine-apis/users.rb, line 97</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">auth_domain</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title">
+                    
+                    <a name="M000127"></a><b>email</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000127_source')" id="l_M000127_source">show</a>
+                        
+                    </p>
+                    <div id="M000127_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/appengine-apis/users.rb, line 100</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">email</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title">
+                    
+                    <a name="M000125"></a><b>nickname</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  
+                  <p>
+Return this user&#8217;s nickname. The nickname will be a unique, human
+readable identifier for this user with respect to this application. It will
+be an email address for some users, but not all.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000125_source')" id="l_M000125_source">show</a>
+                        
+                    </p>
+                    <div id="M000125_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/appengine-apis/users.rb, line 94</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">nickname</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
