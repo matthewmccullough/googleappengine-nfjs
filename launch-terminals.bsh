@@ -8,3 +8,6 @@ iterm . EXAMPLES white
 
 #Wicket
 iterm wicket-helloworld-on-gae WICKET white
+
+#Grails
+iterm grails-monstertruck-on-gae GRAILS white
