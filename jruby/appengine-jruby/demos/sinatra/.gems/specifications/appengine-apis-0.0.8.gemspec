@@ -31,12 +31,11 @@ DataMapper API instead of the lower level AppEngine::Datastore API.}
   s.email = ["ribrdb@gmail.com"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt"]
   s.files = ["History.txt", "Manifest.txt", "README.rdoc", "Rakefile", "lib/appengine-apis.rb", "lib/appengine-apis/apiproxy.rb", "lib/appengine-apis/datastore.rb", "lib/appengine-apis/datastore_types.rb", "lib/appengine-apis/local_boot.rb", "lib/appengine-apis/logger.rb", "lib/appengine-apis/mail.rb", "lib/appengine-apis/memcache.rb", "lib/appengine-apis/merb-logger.rb", "lib/appengine-apis/sdk.rb", "lib/appengine-apis/testing.rb", "lib/appengine-apis/urlfetch.rb", "lib/appengine-apis/users.rb", "script/console", "script/destroy", "script/generate", "spec/datastore_spec.rb", "spec/datastore_types_spec.rb", "spec/logger_spec.rb", "spec/mail_spec.rb", "spec/memcache_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "spec/urlfetch_spec.rb", "spec/users_spec.rb", "tasks/rspec.rake"]
-  s.has_rdoc = true
   s.homepage = %q{http://code.google.com/p/appengine-jruby}
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{appengine-jruby}
-  s.rubygems_version = %q{1.3.1}
+  s.rubygems_version = %q{1.3.3}
   s.summary = %q{APIs and utilities for using JRuby on Google App Engine}
 
   if s.respond_to? :specification_version then

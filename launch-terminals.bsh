@@ -1,0 +1,10 @@
+open *.rtf
+
+#Scratch
+iterm ~/Documents/Temp/Scratch SCRATCH white
+
+#Root of Examples
+iterm . EXAMPLES white
+
+#Wicket
+iterm wicket-helloworld-on-gae WICKET white

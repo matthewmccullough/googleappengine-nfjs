@@ -12,10 +12,9 @@ Gem::Specification.new do |s|
   s.email = %q{ribrdb@gmail.com}
   s.extra_rdoc_files = ["README.rdoc", "LICENSE"]
   s.files = ["LICENSE", "README.rdoc", "Rakefile", "lib/appengine_adapter.rb", "spec/dm-appengine_spec.rb", "spec/spec_helper.rb"]
-  s.has_rdoc = true
   s.homepage = %q{http://code.google.com/p/appengine-jruby}
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.1}
+  s.rubygems_version = %q{1.3.3}
   s.summary = %q{A DataMapper adapter for Google App Engine}
 
   if s.respond_to? :specification_version then
