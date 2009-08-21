@@ -5,7 +5,7 @@
   <groupId>com.ambientideas</groupId>
   <artifactId>gae-maven-parent-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.0</version>
+  <version>1.0.1</version>
   <name>GAE Parent POM for WebApps</name>
   <description>Google AppEngine POM for Maven WebApps</description>
   <url>http://appengine.google.com</url>
@@ -29,6 +29,35 @@
   
   <!-- Profiles for Google App Engine -->
   <profiles>
+    <!-- Deploy to local dev test Jetty -->
+    <profile>
+      <id>gaedevappserver</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+              <execution>
+                <phase>install</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+
+                <configuration>
+                  <executable>${env.APPENGINE_HOME}/bin/dev_appserver.sh</executable>
+                  <arguments>
+                    <argument>${project.build.directory}/${project.artifactId}-${project.version}</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    
     <!-- Deploy to production -->
     <profile>
       <id>gaedeploy</id>
@@ -58,40 +87,36 @@
         </plugins>
       </build>
     </profile>
-    
-    <!-- Deploy to local dev test Jetty -->
-    <profile>
-      <id>gaedevappserver</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>1.1</version>
-            <executions>
-              <execution>
-                <phase>install</phase>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-
-                <configuration>
-                  <executable>${env.APPENGINE_HOME}/bin/dev_appserver.sh</executable>
-                  <arguments>
-                    <argument>${project.build.directory}/${project.artifactId}-${project.version}</argument>
-                  </arguments>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
   </profiles>
   
   <build>
     <plugins>
       <!-- Ant echo the usage instructions -->
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>echo-gae-usage</id>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <phase>install</phase>
+            <configuration>
+              <tasks>
+                <echo>USAGE INSTRUCTIONS:</echo>
+                <echo>To use the Google AppEngine integration, create a WAR project,</echo>
+                <echo> extend from this POM via the parent tag and activate one of the two profiles.</echo>
+                <echo> </echo>
+                <echo>To launch a localhost development Jetty server:</echo>
+                <echo> mvn install -P gaedevappserver</echo>
+                <echo> </echo>
+                <echo>To upload to the Google AppEngine production server:</echo>
+                <echo> mvn install -P gaedeploy</echo>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
