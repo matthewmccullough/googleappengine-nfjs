@@ -109,6 +109,7 @@
                 <echo> </echo>
                 <echo>To launch a localhost development Jetty server:</echo>
                 <echo> mvn install -P gaedevappserver</echo>
+                <echo>Stop the Dev App Server by keying Ctrl-C</echo>
                 <echo> </echo>
                 <echo>To upload to the Google AppEngine production server:</echo>
                 <echo> mvn install -P gaedeploy</echo>
