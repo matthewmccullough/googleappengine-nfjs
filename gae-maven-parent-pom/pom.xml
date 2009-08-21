@@ -5,7 +5,7 @@
   <groupId>com.ambientideas</groupId>
   <artifactId>gae-maven-parent-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <name>GAE Parent POM for WebApps</name>
   <description>Google AppEngine POM for Maven WebApps</description>
   <url>http://appengine.google.com</url>
@@ -125,6 +125,16 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      
+      <!-- Set Java source code and bytecode versions to 1.6 by default -->
+      <plugin> 
+          <groupId>org.apache.maven.plugins</groupId> 
+          <artifactId>maven-compiler-plugin</artifactId> 
+          <configuration> 
+              <source>1.6</source> 
+              <target>1.6</target> 
+          </configuration> 
       </plugin>
     </plugins>
   </build>
