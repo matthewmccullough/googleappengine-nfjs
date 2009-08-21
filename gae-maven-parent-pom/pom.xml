@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ambientideas</groupId>
+  <artifactId>gae-maven-parent-pom</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>GAE Parent POM for WebApps</name>
+  <description>Google AppEngine POM for Maven WebApps</description>
+  <url>http://appengine.google.com</url>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.4</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- For servlet spec -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.4</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  
+  <!-- Profiles for Google App Engine -->
+  <profiles>
+    <!-- Deploy to production -->
+    <profile>
+      <id>gaedeploy</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+              <execution>
+                <phase>install</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+
+                <configuration>
+                  <executable>${env.APPENGINE_HOME}/bin/appcfg.sh</executable>
+                  <arguments>
+                    <argument>update</argument>
+                    <argument>${project.build.directory}/${project.artifactId}-${project.version}</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    
+    <!-- Deploy to local dev test Jetty -->
+    <profile>
+      <id>gaedevappserver</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+              <execution>
+                <phase>install</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+
+                <configuration>
+                  <executable>${env.APPENGINE_HOME}/bin/dev_appserver.sh</executable>
+                  <arguments>
+                    <argument>${project.build.directory}/${project.artifactId}-${project.version}</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  
+  <build>
+    <plugins>
+      <!-- Ant echo the usage instructions -->
+    </plugins>
+  </build>
+</project>
