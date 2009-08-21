@@ -1,5 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ambientideas</groupId>
   <artifactId>simple-gae-webapp</artifactId>
@@ -7,11 +8,12 @@
   <version>1.0-SNAPSHOT</version>
   <name>Simple GAE WebApp</name>
   <url>http://maven.apache.org</url>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.4</version>
       <scope>test</scope>
     </dependency>
 
@@ -23,33 +25,71 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-  <build>
-    <finalName>simple-gae-webapp</finalName>
+  
+  <!-- Profiles for Google App Engine -->
+  <profiles>
+    <!-- Deploy to production -->
+    <profile>
+      <id>gaedeploy</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+              <execution>
+                <phase>install</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
 
-    <!-- Execution for deployment to GAE -->
-    <!-- Antrun shell script -->
+                <configuration>
+                  <executable>${env.APPENGINE_HOME}/bin/appcfg.sh</executable>
+                  <arguments>
+                    <argument>update</argument>
+                    <argument>${project.build.directory}/${project.artifactId}-${project.version}</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    
+    <!-- Deploy to local dev test Jetty -->
+    <profile>
+      <id>gaedevappserver</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+              <execution>
+                <phase>install</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+
+                <configuration>
+                  <executable>${env.APPENGINE_HOME}/bin/dev_appserver.sh</executable>
+                  <arguments>
+                    <argument>${project.build.directory}/${project.artifactId}-${project.version}</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  
+  <build>
     <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.1</version>
-        <executions>
-          <execution>
-            <id>enhance_and_deploy</id>
-            <phase>install</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <executable>${env.APPENGINE_HOME}/bin/appcfg.sh</executable>
-          <arguments>
-            <argument>update</argument>
-            <argument>${project.build.directory}/${project.artifactId}</argument>
-          </arguments>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 </project>

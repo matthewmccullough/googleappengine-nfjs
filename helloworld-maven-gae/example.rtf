@@ -12,9 +12,19 @@ Credits
 This is a Maven-ization of the HelloWorld Serlvet that Google provides in the GAE SDK.\
 
 \b \
-Build, package, and upload the app to AppEngine using Maven
+Build, package, and run in the local Jetty dev server
 \b0 \
-mvn install\
+mvn install -P gaedevappserver\
+\
+
+\b View the app\
+
+\b0 http://localhost:8080
+\b \
+\
+Build, package, and upload the app to AppEngine
+\b0 \
+mvn install -P gaedeploy\
 \
 
 \b View the app\
