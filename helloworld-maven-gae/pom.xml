@@ -12,6 +12,6 @@
   <parent>
     <groupId>com.ambientideas</groupId>
     <artifactId>gae-maven-parent-pom</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
   </parent>  
 </project>
