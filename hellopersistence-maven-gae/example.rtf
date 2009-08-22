@@ -1,0 +1,119 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf540
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww11260\viewh12720\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\b\fs40 \cf0 Mavenized Hello Low-level Persistence API Example
+\fs24 \
+\
+Description
+\b0 \
+This example uses the low-level persistence API to BigTable.\
+\
+\
+
+\b References
+\b0 \
+http://code.google.com/appengine/docs/python/datastore/gqlreference.html\
+http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/datastore/package-summary.html\
+http://googleappengine.blogspot.com/\
+\
+Google Apps and Google App Engine (Domain Authentication)\
+http://www.youtube.com/watch?v=7mh9vUzOVng\
+\
+Mercurial on BigTable\
+http://www.youtube.com/watch?v=ri796Hx8las&feature=channel\
+\
+\
+
+\b Data Viewer
+\b0 \
+Local\
+http://localhost:8080/_ah/admin/datastore?kind=Person\
+\
+\
+\
+
+\b Gotchas
+\b0 \
+If you get an exception\
+\pard\pardeftab720\sl380\ql\qnatural
+
+\f1\fs26 \cf0 java.lang.NoClassDefFoundError: com/google/appengine/api/datastore/DatastoreServiceFactory\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 You need to depend on and DEPLOY the appengine JARs with your app.  It seems natural that these would be a <provided> element, \
+\
+\
+
+\b Maven Central Repo GAE Artifacts
+\b0 \
+Discussion about posting GAE artifacts, including Jason van Zyl and Greg Kick\
+
+\i http://groups.google.com/group/google-appengine-java/browse_thread/thread/1653531cbda99061\
+
+\i0 \
+Link to artifacts in central repo\
+
+\i http://repo1.maven.org/maven2/com/google/appengine/appengine-api-1.0-sdk/1.2.1/\
+
+\i0 \
+GAE/J with Maven Support -- Discussion\
+
+\i http://groups.google.com/group/google-appengine-java/browse_thread/thread/99f62f0e8c980853/d260c4c550cddbe8?lnk=gst&q=maven#d260c4c550cddbe8\
+
+\i0 \
+Tim's Blog - Google App Engine Maven POM\
+
+\i http://twelves.blogspot.com/2009/04/google-appengine-maven-pom.html
+\i0 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f1\fs26 \cf0 mvn install:install-file -Dfile=lib/shared/appengine-local-runtime-shared.jar -DgroupId=com.google -DartifactId=appengine-local-runtime-shared -Dversion=1.2.0 -Dpackaging=jar -DgeneratePom=true\
+\
+mvn install:install-file -Dfile=lib/shared/jsp/commons-logging-1.1.1.jar -DgroupId=com.google -DartifactId=commons-logging-repackage -Dversion=1.1.1 -Dpackaging=jar -DgeneratePom=true\
+
+\f0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 You can 1) depend on the artifacts from central (1.2.1 is the newest available as of 2009-08-22) or you can 2) <system> depend on them from your GAE installation.  However, <system> scoped dependencies cannot be deployed/installed.  3) You can install with the mvn dependency:install\
+\
+\
+
+\b Parent POM
+\b0 \
+Ensure that you've mvn installed the parent POM before you build any of the sample apps.\
+\
+cd ../gae-maven-parent-pom\
+mvn install\
+\
+
+\b \
+Build, package, and run in the local Jetty dev server
+\b0 \
+mvn install -P gaedevappserver\
+\
+\
+
+\b View the app\
+
+\b0 http://localhost:8080
+\b \
+\
+\
+Build, package, and upload the app to AppEngine
+\b0 \
+mvn install -P gaedeploy\
+\
+\
+
+\b View the app\
+
+\b0 http://ambientideas.appspot.com/\
+\
+\
+
+\b View other versions of the app
+\b0 \
+http://1.latest.ambientideas.appspot.com/}
