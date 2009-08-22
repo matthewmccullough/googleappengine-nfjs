@@ -5,7 +5,7 @@
   <groupId>com.ambientideas</groupId>
   <artifactId>gae-maven-parent-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <name>GAE Parent POM for WebApps</name>
   <description>Google AppEngine POM for Maven WebApps</description>
   <url>http://appengine.google.com</url>
@@ -33,6 +33,25 @@
       <version>2.4</version>
       <scope>provided</scope>
     </dependency>
+    
+    <!-- Available in the central Maven repo -->
+    <!-- Hoping for 1.2.2 to be deployed soon -->
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-api-1.0-sdk</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+    
+    <!-- Alternate way to path to the local GAE JARs, but system scope dependencies will not install/upload/deploy -->
+    <!--
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>appengine-core</artifactId>
+      <version>2.4</version>
+      <scope>system</scope>
+      <systemPath>${env.APPENGINE_HOME}/lib/impl/appengine-api.jar</systemPath>
+    </dependency>
+    -->
   </dependencies>
   
   <!-- Profiles for Google App Engine -->
