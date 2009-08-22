@@ -19,25 +19,28 @@ public class HelloAppEngineServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     
     //Save a row
-    Entity personEntityNew = new Entity("Person");
+    Entity personEntityNew = new Entity("Person", "matthewm@ambientideas.com");
     personEntityNew.setProperty("name", "Matthew McCullough");
     personEntityNew.setProperty("email", "matthewm@ambientideas.com");
     personEntityNew.setProperty("ssn", 444555777);
     datastore.put(personEntityNew);
-    resp.getWriter().println("Data written");
+    
+    resp.getWriter().println("** BigTable data written successfully");
+
 
     // Lookup data by known key name
-//    Entity personEntity = null;
-//  
-//    try {
-//      personEntity = datastore.get(KeyFactory.createKey("Person", "matthewm@ambientideas.com"));
-//    } catch (EntityNotFoundException e) {
-//      e.printStackTrace();
-//    }
-//    
-//    resp.getWriter().println("Person: " + personEntity);
+    Entity personEntity = null;
+  
+    try {
+      personEntity = datastore.get(KeyFactory.createKey("Person", "matthewm@ambientideas.com"));
+      resp.getWriter().println("** BigTable data read successfully");
+      resp.getWriter().println("Person: " + personEntity);
+    } catch (EntityNotFoundException e) {
+      e.printStackTrace();
+      resp.getWriter().println("** BigTable data reading EXCEPTION");
+    }
 
-//    // Or perform a query
+    //Perform a query
 //    Query query = new Query("Person", personEntity.getKey());
 //    query.addFilter("dueDate", Query.FilterOperator.LESS_THAN, new java.util.Date());
 //    for (Entity taskEntity : datastore.prepare(query).asIterable()) {
