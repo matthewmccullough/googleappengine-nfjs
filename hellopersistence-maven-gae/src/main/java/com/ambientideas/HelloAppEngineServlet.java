@@ -71,11 +71,15 @@ public class HelloAppEngineServlet extends HttpServlet {
 		personEntityNew.setProperty("ssn", 444555777);
 		personEntityNew.setProperty("saveDate", new java.util.Date());
 		datastore.put(personEntityNew);
+		
+		resp.getWriter().println("** BigTable data wrote one Person successfully");
 	}
 
 	private void saveRandomPersons(HttpServletResponse resp, DatastoreService datastore)
 			throws IOException {
 		// Save 5 random rows
+		resp.getWriter().println("** BigTable data random Persons attempting writing");
+		
 		for (int i = 0; i < 5; i++) {
 			Entity personRandomEntityNew = new Entity("Person", "x"
 					+ new Random().nextInt() + "random@ambientideas.com");
@@ -87,6 +91,6 @@ public class HelloAppEngineServlet extends HttpServlet {
 			personRandomEntityNew.setProperty("saveDate", new java.util.Date());
 			datastore.put(personRandomEntityNew);
 		}
-		resp.getWriter().println("** BigTable data radom Persons written successfully");
+		resp.getWriter().println("** BigTable data random Persons written successfully");
 	}
 }
