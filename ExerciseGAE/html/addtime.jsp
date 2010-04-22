@@ -27,39 +27,6 @@ to include your name with greetings you post.</p>
     }
 %>
 
-<table>
-  <tr>
-    <td>Date</td>
-    <td>Employee</td>
-    <td>Comments</td>
-    <td>Hours</td>
-  </tr>
-<%
-    PersistenceManager pm = PMF.get().getPersistenceManager();
-    String query = "select from " + TimeTracked.class.getName() + " order by date desc range 0,5";
-    List<TimeTracked> timetracked = (List<TimeTracked>) pm.newQuery(query).execute();
-    if (timetracked.isEmpty()) {
-%>
-<tr><td>The Time Logbook has no entries.</td></tr>
-<%
-    }
-    else {
-        for (TimeTracked g : timetracked) {
-%>
-
-  <tr>
-    <td><%= g.getHoursWorked() %></td>
-    <td><%= g.getHoursWorked() %></td>
-    <td><%= g.getWorkComments() %></td>
-    <td><%= g.getHoursWorked() %></td>
-  </tr>
-<%
-        }
-    }
-    pm.close();
-%>
-</table>
-
     <form action="/addtime" method="post">
       <div>Hours:<textarea name="hoursWorked" rows="1" cols="4"></textarea></div>
       <div>Comments:<textarea name="workComments" rows="3" cols="60"></textarea></div>

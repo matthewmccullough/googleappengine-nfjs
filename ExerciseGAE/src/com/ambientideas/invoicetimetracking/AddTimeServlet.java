@@ -45,6 +45,6 @@ public class AddTimeServlet extends HttpServlet {
 			pm.close();
 		}
 
-		resp.sendRedirect("/listtime.jsp");
+		resp.sendRedirect("/index.jsp");
 	}
 }

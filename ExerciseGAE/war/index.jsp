@@ -6,6 +6,10 @@
 <!-- with a "Standards Mode" doctype is supported, -->
 <!-- but may lead to some differences in layout.   -->
 
+
+<%@ page import="com.google.appengine.api.users.UserService" %>
+<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -25,6 +29,12 @@
       </tr>
       <tr>
         <td><a href="listtime.jsp">View time worked.</a></td>
+      </tr>
+      <tr>
+        <td><a href="<%= UserServiceFactory.getUserService().createLoginURL(request.getRequestURI()) %>">Log In.</a></td>
+      </tr>
+      <tr>
+        <td><a href="<%= UserServiceFactory.getUserService().createLogoutURL(request.getRequestURI()) %>">Log Out.</a></td>
       </tr>
     </table>
   </body>
