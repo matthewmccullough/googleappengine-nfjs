@@ -4,6 +4,8 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+    <display-name>Consultant Invoice Time Tracking</display-name>
+    
 	<servlet>
 		<servlet-name>Quota</servlet-name>
 		<servlet-class>com.ambientideas.exercisegae.QuotaServlet</servlet-class>
@@ -16,3 +18,4 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 </web-app>
+
