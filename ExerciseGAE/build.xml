@@ -57,7 +57,16 @@
       <fileset dir="src/WEB-INF">
         <include name="*.xml"/>
       </fileset>
+      <fileset dir="src">
+        <include name="logging.properties"/>
+      </fileset>
     </copy>
+    <copy todir="${war.dir}/WEB-INF/classes">
+      <fileset dir="src">
+        <include name="log4j.properties"/>
+      </fileset>
+    </copy>
+    
     <enhance_war war="${war.dir}"/>
   </target>
 
