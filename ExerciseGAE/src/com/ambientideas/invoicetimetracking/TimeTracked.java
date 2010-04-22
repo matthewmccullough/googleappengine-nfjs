@@ -26,6 +26,14 @@ public class TimeTracked {
     @Persistent
     private String employeeName;
 	
+	public TimeTracked(Float hoursWorked, String workComments, Date date,
+			String employeeName) {
+		super();
+		this.hoursWorked = hoursWorked;
+		this.workComments = workComments;
+		this.date = date;
+		this.employeeName = employeeName;
+	}
 	
 	public Long getId() {
 		return id;
@@ -65,5 +73,17 @@ public class TimeTracked {
 
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
+	}
+
+	@Override
+	public String toString() {
+		return "TimeTracked ["
+				+ (date != null ? "date=" + date + ", " : "")
+				+ (employeeName != null ? "employeeName=" + employeeName + ", "
+						: "")
+				+ (hoursWorked != null ? "hoursWorked=" + hoursWorked + ", "
+						: "") + (id != null ? "id=" + id + ", " : "")
+				+ (workComments != null ? "workComments=" + workComments : "")
+				+ "]";
 	}
 }

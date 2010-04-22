@@ -82,7 +82,7 @@
     <javac srcdir="src" destdir="${war.dir}/WEB-INF/classes">
       <classpath>
         <fileset dir="${appengine.sdk}/lib/user">
-          <include name="*.jar"/>
+          <include name="**/*.jar"/>
         </fileset>
         <fileset dir="${appengine.sdk}/lib/shared">
           <include name="*.jar"/>
