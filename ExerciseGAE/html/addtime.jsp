@@ -27,31 +27,42 @@ to include your name with greetings you post.</p>
     }
 %>
 
+<table>
+  <tr>
+    <td>Date</td>
+    <td>Employee</td>
+    <td>Comments</td>
+    <td>Hours</td>
+  </tr>
 <%
     PersistenceManager pm = PMF.get().getPersistenceManager();
     String query = "select from " + TimeTracked.class.getName() + " order by date desc range 0,5";
     List<TimeTracked> timetracked = (List<TimeTracked>) pm.newQuery(query).execute();
     if (timetracked.isEmpty()) {
 %>
-<p>The Time Logbook has no entries.</p>
+<tr><td>The Time Logbook has no entries.</td></tr>
 <%
-    } else {
+    }
+    else {
         for (TimeTracked g : timetracked) {
-            if (g.getWorkComments() == null) {
 %>
-<p>Time Tracked Comments:</p>
-<%
-            }
-%>
-<blockquote>Hours: <%= g.getHoursWorked() %></blockquote>
+
+  <tr>
+    <td><%= g.getHoursWorked() %></td>
+    <td><%= g.getHoursWorked() %></td>
+    <td><%= g.getWorkComments() %></td>
+    <td><%= g.getHoursWorked() %></td>
+  </tr>
 <%
         }
     }
     pm.close();
 %>
+</table>
 
-    <form action="/sign" method="post">
-      <div><textarea name="workComments" rows="3" cols="60"></textarea></div>
+    <form action="/addtime" method="post">
+      <div>Hours:<textarea name="hoursWorked" rows="1" cols="4"></textarea></div>
+      <div>Comments:<textarea name="workComments" rows="3" cols="60"></textarea></div>
       <div><input type="submit" value="New Time" /></div>
     </form>
 
