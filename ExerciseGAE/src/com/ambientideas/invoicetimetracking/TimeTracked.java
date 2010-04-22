@@ -22,6 +22,9 @@ public class TimeTracked {
 	
     @Persistent
     private Date date;
+    
+    @Persistent
+    private String employeeName;
 	
 	
 	public Long getId() {
@@ -54,5 +57,13 @@ public class TimeTracked {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 }

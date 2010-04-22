@@ -89,6 +89,19 @@
         </fileset>
       </classpath>
     </javac>
+  	
+    <copy
+        todir="${war.dir}/WEB-INF/lib"
+        flatten="true">
+      <fileset dir="${appengine.sdk}/lib/user">
+        <include name="**/*.jar" />
+      </fileset>
+    </copy>
+    <copy todir="${war.dir}/WEB-INF/classes">
+      <fileset dir="src">
+        <include name="META-INF/*" />
+      </fileset>
+    </copy>
   </target>
 
   <target name="clean"
