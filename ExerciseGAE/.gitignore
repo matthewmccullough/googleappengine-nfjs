@@ -1,0 +1,3 @@
+*.log
+war/WEB-INF/classes/com
+.settings
