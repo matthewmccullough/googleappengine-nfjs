@@ -1,7 +1,10 @@
 package com.ambientideas.invoicetimetracking;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -24,7 +27,20 @@ public class SendMailAlertServlet extends HttpServlet {
 		Properties props = new Properties();
 		Session session = Session.getDefaultInstance(props, null);
 
-		String msgBody = "A scheduled event on the Time Tracking App requested that we send you a mail....";
+		//String msgBody = "A scheduled event on the Time Tracking App requested that we send you a mail....";
+		
+		URL url = new URL("http://www.ambientideas.com/index.html");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+        String pageContents = "...";
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            pageContents = "" + pageContents + line;
+        }
+        reader.close();
+        
+        
+        String msgBody = pageContents;
 
 		Message msg = new MimeMessage(session);
 		try {

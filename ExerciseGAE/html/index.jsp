@@ -42,7 +42,9 @@
       <tr>
         <td><a href="_ah/admin">Admin Console</a></td>
       </tr>
-      
+      <tr>
+        <td><a href="/sendmailalert">Send Mail Alert</a></td>
+      </tr>
       
     </table>
   </body>
