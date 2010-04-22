@@ -6,6 +6,15 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     <display-name>Consultant Invoice Time Tracking</display-name>
     
+    <servlet>
+		<servlet-name>SendMailAlert</servlet-name>
+	<servlet-class>com.ambientideas.invoicetimetracking.SendMailAlertServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SendMailAlert</servlet-name>
+		<url-pattern>/sendmailalert</url-pattern>
+	</servlet-mapping>
+    
 	<servlet>
 		<servlet-name>Quota</servlet-name>
 		<servlet-class>com.ambientideas.exercisegae.QuotaServlet</servlet-class>

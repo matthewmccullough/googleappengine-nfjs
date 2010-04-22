@@ -39,6 +39,10 @@
       <tr>
         <td><a href="/appstats/">App Stats</a></td>
       </tr>
+      <tr>
+        <td><a href="_ah/admin">Admin Console</a></td>
+      </tr>
+      
       
     </table>
   </body>

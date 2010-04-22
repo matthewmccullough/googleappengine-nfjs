@@ -25,17 +25,25 @@
         <td colspan="2" style="font-weight:bold;">Available Features:</td>        
       </tr>
       <tr>
-        <td><a href="addtime.jsp">Add time worked.</a></td>
+        <td><a href="addtime.jsp">Add time worked</a></td>
       </tr>
       <tr>
-        <td><a href="listtime.jsp">View time worked.</a></td>
+        <td><a href="listtime.jsp">View time worked</a></td>
       </tr>
       <tr>
-        <td><a href="<%= UserServiceFactory.getUserService().createLoginURL(request.getRequestURI()) %>">Log In.</a></td>
+        <td><a href="<%= UserServiceFactory.getUserService().createLoginURL(request.getRequestURI()) %>">Log In</a></td>
       </tr>
       <tr>
-        <td><a href="<%= UserServiceFactory.getUserService().createLogoutURL(request.getRequestURI()) %>">Log Out.</a></td>
+        <td><a href="<%= UserServiceFactory.getUserService().createLogoutURL(request.getRequestURI()) %>">Log Out</a></td>
       </tr>
+      <tr>
+        <td><a href="/appstats/">App Stats</a></td>
+      </tr>
+      <tr>
+        <td><a href="_ah/admin">Admin Console</a></td>
+      </tr>
+      
+      
     </table>
   </body>
 </html>
